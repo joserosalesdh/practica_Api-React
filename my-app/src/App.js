@@ -3,6 +3,7 @@ import './App.css';
 // Utilizo la dependencia de axios para hacer mis HTTP request, hay que tener en cuenta que axios retorna una promesa
 import axios from 'axios'
 import Header from './components/Header'
+import CharacterGrid from './components/CharacterGrid'
 
 const App = () => {
 // Dentro de la function creo una const con estado hook, en la que los items van a representar los personajes que viene de la API 
@@ -20,7 +21,7 @@ useEffect(() =>{
     setItems(result.data)
     //Como la data ya esta cargada pasa de true a false 
     setIsLoading(false)
-    //Me quede en el min 15:46 https://www.youtube.com/watch?v=YaioUnMw0mo
+    
   }
 
   fetchItems()
@@ -31,6 +32,11 @@ useEffect(() =>{
     <div className="container">
 
       <Header/>
+      <CharacterGrid
+      //isLoading value cambia cuando cambio setIsLoading
+        isLoading = {isLoading}
+        items = {items}
+      />
      
     </div>
   );
