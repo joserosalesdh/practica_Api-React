@@ -1,4 +1,5 @@
 import React from 'react'
+import CharacterItem from './CharacterItem'
 
 // Uso destructuring para no tener que andar poniendo props.
 const CharacterGrid = ({items, isLoading}) => {
@@ -7,8 +8,9 @@ const CharacterGrid = ({items, isLoading}) => {
         ) : (
         <section className="cards">
             {items.map((item) => (
-                <h1>{item.name}</h1>
+                <CharacterItem key = {item.char_id} item={item}></CharacterItem>
             ))}
         </section>)
+        
 }
 export default CharacterGrid
